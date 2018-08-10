@@ -1,0 +1,46 @@
+<template name='settingsdropdown'>
+  <div class="ui item top right floated dropdown dropdownsettings needsclick" style="float: right;">
+    <i class="settings icon needsclick" style='font-size:1.3em; margin:0;'></i>
+    <div id="menu" class="menu">
+      <div class="item">
+        <i class="left dropdown icon"></i>
+        <span class="text">{{ translate 'SETTINGS_DROPDOWN_VOTING'}} @ {{voteWeight}}%</span>
+        <div class="left menu">
+          <div class="item voteWeight">+10%</div>
+          <div class="item voteWeight">+1%</div>
+          <div class="item voteWeight">-1%</div>
+          <div class="item voteWeight">-10%</div>
+        </div>
+      </div>
+      <div class="item">
+        <i class="left dropdown icon"></i>
+        <span class="text">{{ translate 'SETTINGS_DROPDOWN_NSFW_VIDEOS'}}</span>
+        <div class="left menu">
+          {{#if equals 'Show' nsfwSetting}}
+            <div class="item nsfwSetting nsfwShow"><strong>{{ translate 'SETTINGS_DROPDOWN_SHOW'}}</strong></div>
+          {{else}}
+            <div class="item nsfwSetting nsfwShow">{{ translate 'SETTINGS_DROPDOWN_SHOW'}}</div>
+          {{/if}}
+          {{#if equals 'Fully Hidden' nsfwSetting}}
+            <div class="item nsfwSetting nsfwHide"><strong>{{ translate 'SETTINGS_DROPDOWN_FULLY_HIDDEN'}}</strong></div>
+          {{else}}
+            <div class="item nsfwSetting nsfwHide">{{ translate 'SETTINGS_DROPDOWN_FULLY_HIDDEN'}}</div>
+          {{/if}}
+        </div>
+      </div>
+      <div class="item languages">
+        <i class="language icon"></i>
+        <span class="text">{{ translate 'SETTINGS_DROPDOWN_LANGUAGE'}}</span>
+        <!-- <div class="left menu"  style="right: 105%; min-width: 0px;">
+          {{#each arrayify languages}}
+            <div class="item langSetting" onclick="loadJsonTranslate('{{key}}')">{{value.name}}</div>
+          {{/each}}
+        </div> -->
+      </div>
+      <div class="item nightMode">
+          <i class="adjust icon"></i>
+          <span class="text">{{ translate 'SETTINGS_NIGHTMODE'}}</span>
+      </div>
+    </div>
+  </div>
+</template>

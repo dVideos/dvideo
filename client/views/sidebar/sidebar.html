@@ -1,0 +1,137 @@
+<template name="sidebar">
+  <div style="height:100%;">
+    <nav class="sectionslist">
+      <a href='/' class="item pdg-non" id="home">
+        <div id="homesidebarmenu" class="menuitem dvideosidebarmenu dsp-inh pdg-non">
+          <i class="home icon dvideosidebaricon"></i>
+          <span class="dvideosidebartitle">{{ translate 'SIDEBAR_HOME'}}</span>
+        </div>
+      </a>
+      {{#if activeUser}}
+        <a href='/c/{{activeUser}}' class="item pdg-non">
+          <div id="channelsidebarmenu" class="menuitem dvideosidebarmenu dsp-inh pdg-non">
+            <i class="grid layout icon dvideosidebaricon"></i>
+            <span class="dvideosidebartitle">{{ translate 'SIDEBAR_MY_CHANNEL'}}</span>
+          </div>
+        </a>
+        <a href='/dtalk' class="item pdg-non">
+          <div id="dtalksidebarmenu" class="menuitem dvideosidebarmenu dsp-inh pdg-non">
+            <i class="comment icon dvideosidebaricon"></i>
+            <span class="dvideosidebartitle">{{ translate 'SIDEBAR_DTALK'}}</span>
+          </div>
+        </a>
+        <a href='/upload' class="item pdg-non">
+          <div id="uploadsidebarmenu" class="menuitem dvideosidebarmenu dsp-inh pdg-non">
+            <i class="cloud upload icon dvideosidebaricon"></i>
+            <span class="dvideosidebartitle">{{ translate 'SIDEBAR_UPLOAD'}}</span>
+          </div>
+        </a>
+        <a href='/golive' class="item pdg-non">
+          <div id="golivesidebarmenu" class="menuitem dvideosidebarmenu dsp-inh pdg-non">
+            <i class="podcast icon dvideosidebaricon"></i>
+            <span class="dvideosidebartitle">{{ translate 'SIDEBAR_GO_LIVE'}}</span>
+          </div>
+        </a>
+      {{else}}
+        <a href='/login' class="item pdg-non">
+          <div id="uploadsidebarmenu" class="menuitem dvideosidebarmenu dsp-inh pdg-non">
+            <i class="cloud upload icon dvideosidebaricon"></i>
+            <span class="dvideosidebartitle">{{ translate 'SIDEBAR_UPLOAD'}}</span>
+          </div>
+        </a>
+      {{/if}}
+      <a href='/live' class="item pdg-non">
+        <div id="livesidebarmenu" class="menuitem dvideosidebarmenu dsp-inh pdg-non">
+          <i class="tv icon dvideosidebaricon"></i>
+          <span class="dvideosidebartitle">{{ translate 'SIDEBAR_LIVESTREAMS'}}</span>
+        </div>
+      </a>
+      <a href='/hotvideos' class="item pdg-non">
+        <div id="hotsidebarmenu" class="menuitem dvideosidebarmenu dsp-inh pdg-non">
+          <i class="fire icon dvideosidebaricon"></i>
+          <span class="dvideosidebartitle">{{ translate 'HOME_TITLE_HOT_VIDEOS'}}</span>
+        </div>
+      </a>
+      <a href='/trendingvideos' class="item pdg-non">
+        <div id="trendingsidebarmenu" class="menuitem dvideosidebarmenu dsp-inh pdg-non">
+          <i class="trophy icon dvideosidebaricon"></i>
+          <span class="dvideosidebartitle">{{ translate 'HOME_TITLE_TRENDING_VIDEOS'}}</span>
+        </div>
+      </a>
+      <a href='/newvideos' class="item pdg-non">
+        <div id="newsidebarmenu" class="menuitem dvideosidebarmenu dsp-inh pdg-non">
+          <i class="hourglass start icon dvideosidebaricon"></i>
+          <span class="dvideosidebartitle">{{ translate 'HOME_TITLE_NEW_VIDEOS'}}</span>
+        </div>
+      </a>
+      <a href='/watchlater' class="item pdg-non">
+        <div id="watchlatersidebarmenu" class="menuitem dvideosidebarmenu dsp-inh pdg-non">
+          <i class="time icon dvideosidebaricon"></i>
+          <span class="dvideosidebartitle">{{ translate 'HOME_TITLE_WATCH_LATER'}}</span>
+        </div>
+      </a>
+      <a href='/history' class="item pdg-non">
+        <div id="watchagainsidebarmenu" class="menuitem dvideosidebarmenu dsp-inh pdg-non">
+          <i class="history icon dvideosidebaricon"></i>
+          <span class="dvideosidebartitle">{{ translate 'HOME_TITLE_WATCH_AGAIN'}}</span>
+        </div>
+      </a>
+    </nav>
+    <div class="ui divider"></div>
+
+    <nav id="tagslist" class="tagslist">
+        <div class="menuitem dsp-inh pdg-non">
+            <h4 class="dvideosidebartitle trendingtitle">{{ translate 'SIDEBAR_TRENDING_TAGS'}}</h4>
+          </div>
+      {{#each tags}}
+        <a href='/t/{{term}}' class="menuitem dvideosidebarmenu" title='{{./count}}'>
+          {{term}}
+        </a>
+      {{/each}}
+    </nav>
+
+    {{#if isOnMobile }}
+    <div class="ui divider"></div>
+    <a class="item pdg-non wid-ful" style="margin-bottom: 50px;">
+      <div class="menuitem dvideosidebarmenu mobilesidebarlinks" style="font-weight: 600;font-size: 13px;line-height: 1.5em;display: grid;">
+        <a href='https://about.dvideo.io' target="_blank" id="about">
+          <span class="sidebarlink">{{ translate 'SIDEBAR_ABOUT'}}</span>
+        </a>
+        <a href='https://about.dvideo.io/#faq1' target="_blank" id="help">
+          <span class="sidebarlink">{{ translate 'SIDEBAR_HELP'}}</span>
+        </a>
+        <a href='https://github.com/dvideo' target="_blank" id="github">
+          <span class="sidebarlink">{{ translate 'SIDEBAR_GITHUB'}}</span>
+        </a>
+        <a href='https://steemit.com/@dvideo' target="_blank" id="steemit">
+          <span class="sidebarlink">{{ translate 'SIDEBAR_STEEM'}}</span>
+        </a>
+        <a href='https://discord.gg/RqeQQjf' target="_blank" id="discord">
+          <span class="sidebarlink">{{ translate 'SIDEBAR_DISCORD'}}</span>
+        </a>
+      </div>
+      <div class="mobilesidebarspacer"></div>
+    </a>
+    {{else}}
+    <div class="ui divider"></div>
+    <div class="sidebarlink" style="color: red; padding: 10px 10px 70px 10px;font-weight: 600;font-size: 14px;line-height: 1.5em;">
+      <a href='https://about.dvideo.io' target="_blank" id="about">
+        <span class="sidebarlink">{{ translate 'SIDEBAR_ABOUT'}}</span>
+      </a>-
+      <a href='https://about.dvideo.io/#faq1' target="_blank" id="help">
+        <span class="sidebarlink">{{ translate 'SIDEBAR_HELP'}}</span>
+      </a>-
+      <a href='https://github.com/dvideo' target="_blank" id="github">
+        <span class="sidebarlink">{{ translate 'SIDEBAR_GITHUB'}}</span>
+      </a>
+      <br>
+      <a href='https://steemit.com/@dvideo' target="_blank" id="steemit">
+        <span class="sidebarlink">{{ translate 'SIDEBAR_STEEM'}}</span>
+      </a>-
+      <a href='https://discord.gg/dvideo' target="_blank" id="discord">
+        <span class="sidebarlink">{{ translate 'SIDEBAR_DISCORD'}}</span>
+      </a>
+    </div>
+    {{/if}}
+  </div>
+</template>

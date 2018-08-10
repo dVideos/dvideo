@@ -4,7 +4,7 @@ This is the main javascript application you can use on dVideo. This is probably 
 
 ## Preview
 
-![dVideo Homepage Preview](https://i.imgur.com/kKeS77i.png)
+![dVideo Homepage Preview](.png)
 
 ## Install
 
